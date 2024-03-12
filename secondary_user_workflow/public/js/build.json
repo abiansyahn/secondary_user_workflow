@@ -1,0 +1,6 @@
+{
+	"js/secondary_user_workflow.min.js": [
+		"public/js/workflow.js",
+		"public/js/form.js"
+	]
+}
