@@ -60,7 +60,7 @@ frappe.workflow.get_secondary_user_permission = function(doctype, docname, state
 		frappe.get_children(frappe.workflow.workflows[doctype], "states", { state: state }) ||
 		[];
 		let secondary_user = workflow_states.map((d) => d.custom_allow_edit_for_user_by_document_field);
-		if (secondary_user) {
+		if (secondary_user[0] !== undefined) {
 			frappe.db.get_value(doctype, docname, secondary_user[0], (values) => {
 				let key = Object.keys(values)[0];
 				resolve(frappe.session.user == values[key]);
